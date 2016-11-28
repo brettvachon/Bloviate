@@ -4,7 +4,11 @@
     <url>/cron/BloggerbotServlet</url>
     <description>Update with new sentence</description>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <schedule>every 1 hours</schedule>
+=======
+    <schedule>every 30 minutes</schedule>
+>>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
 =======
     <schedule>every 30 minutes</schedule>
 >>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52

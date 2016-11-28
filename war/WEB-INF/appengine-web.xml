@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <application>your-application-name</application> 
+=======
+  <application>blogger-bot-1127</application>
+>>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
 =======
   <application>blogger-bot-1127</application>
 >>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52

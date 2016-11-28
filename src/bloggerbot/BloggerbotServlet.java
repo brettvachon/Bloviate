@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Bloggerbot is licenced under the The MIT License (MIT)
-=======
- * BloggerBot is licenced under the The MIT License (MIT)
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
  * 
  * Copyright (c) 2014–2016 Daloonik daloonik@gmail.com
  * 
@@ -33,11 +29,8 @@ import java.io.IOException;
 
 import javax.servlet.http.*;
 
-<<<<<<< HEAD
 import com.google.appengine.api.utils.SystemProperty;
 
-=======
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
 import net.jeremybrooks.knicker.KnickerException;
 import net.jeremybrooks.knicker.WordApi;
 import net.jeremybrooks.knicker.WordsApi;
@@ -57,44 +50,27 @@ import javax.mail.internet.MimeMessage;
 @SuppressWarnings("serial")
 public class BloggerbotServlet extends HttpServlet
    {
-<<<<<<< HEAD
-   public static String blogemail = "your_secret_blog_email";
+   public static String blogemail = "your_secret_email";
    
-=======
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException
       {
       StringBuffer buffer = new StringBuffer(); 
       Properties props = new Properties();
       Session session = Session.getDefaultInstance(props, null);
-<<<<<<< HEAD
       GetLine twit = new GetLine("WEB-INF/StaticFiles/twits"); 
-=======
-      GetLine twit = new GetLine("WEB-INF/StaticFiles/twits");
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
       
       System.setProperty("WORDNIK_API_KEY", "your_wordnik_api_key");
       
       try
-<<<<<<< HEAD
          { 
-=======
-         {   
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
          do 
             {
             buffer.setLength(0);
             Word random = WordsApi.randomWord();
             Example ex = WordApi.topExample(random.getWord());
-<<<<<<< HEAD
             buffer.append(ex.getText());            
             } while(buffer.length() > 140); 
         
-=======
-            buffer.append(ex.getText());
-            } while(buffer.length() > 140);
-         
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
          if(buffer.length() < 120)
             {
             buffer.append(" #");
@@ -105,7 +81,6 @@ public class BloggerbotServlet extends HttpServlet
             {
             buffer.insert(0, twit.line() + " ");
             }
-<<<<<<< HEAD
       
          Message msg = new MimeMessage(session);
          msg.setFrom(new InternetAddress(SystemProperty.applicationId.get() + "@appspot.gserviceaccount.com"));
@@ -116,22 +91,12 @@ public class BloggerbotServlet extends HttpServlet
          
          Transport.send(msg);
          
-=======
-         Message msg = new MimeMessage(session);
-         msg.setFrom(new InternetAddress("noreply@anybody.com", "Bloggerbot"));
-         msg.addRecipient(Message.RecipientType.TO,
-                          new InternetAddress("your_secret_address", "Blog"));
-         msg.setContent(buffer.toString(),"text/html; charset=utf-8");
-         Transport.send(msg);
-
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
          resp.setContentType("text/plain");
          resp.getWriter().println("Posted: ");
          resp.getWriter().println(buffer.toString());
          }
       catch(KnickerException e)
          {
-<<<<<<< HEAD
     	  resp.getWriter().println("Problem with Knicker!");
           resp.setContentType("text/plain");
           resp.getWriter().println(e.toString());
@@ -139,28 +104,17 @@ public class BloggerbotServlet extends HttpServlet
       catch (AddressException e)
          {
     	 resp.getWriter().println("Problem involving wrongly formatted address!");
-=======
-         e.printStackTrace();
-         System.exit(1);
-         }
-      catch (AddressException e)
-         {
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
          resp.setContentType("text/plain");
          resp.getWriter().println(e.toString());
          }
       catch (MessagingException e)
          {
-<<<<<<< HEAD
      	 resp.getWriter().println("Problem with Email!");
-=======
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
          resp.setContentType("text/plain");
          resp.getWriter().println(e.toString());
          }    
       catch(FileNotFoundException e)
          {
-<<<<<<< HEAD
      	 resp.getWriter().println("File not found!");
          resp.setContentType("text/plain");
          resp.getWriter().println(e.toString());       
@@ -171,10 +125,5 @@ public class BloggerbotServlet extends HttpServlet
       	 resp.setContentType("text/plain");
       	 resp.getWriter().println(e.toString()); 
       	}
-=======
-         resp.setContentType("text/plain");
-         resp.getWriter().println(e.toString());       
-         }
->>>>>>> c0949e2fab9d2c90dc71d620c872239593cd2b52
       }
    }
