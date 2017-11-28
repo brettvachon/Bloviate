@@ -9,7 +9,7 @@ This bot was written with the intent that the posts will show up on Twitter. You
 
 ----------
 
-##How to set up the bot
+## How to set up the bot
 
 1. Go to https://www.blogger.com and create a blog. 
 
@@ -29,7 +29,7 @@ This bot was written with the intent that the posts will show up on Twitter. You
 
 ----------
 
-##Posting to Twitter
+## Posting to Twitter
 
 As mentioned before, this App was written to subvert the strict restrictions that Twitter places on posting with its apps. Twitter also requires adding a mobile phone to a Twitter account before creating an application.  
 
@@ -41,7 +41,7 @@ To get this Bot to post to Twitter, you will need to:
 
 ----------
 
-##@ Mentions
+## @ Mentions
 
 If you would like the blog to have @ mentions to random Twitter users, use the functionality that grabs a random line from a file and adds it to the Blog post. 
 
