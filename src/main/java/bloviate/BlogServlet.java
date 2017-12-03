@@ -154,23 +154,23 @@ public class BlogServlet extends HttpServlet
       
       //Make up some content
       StringBuilder builder = new StringBuilder();
-	  
-	  //Append an example sentence from Wordnik
+      
+      /** Append a line from a file (optional) */
+      builder.append(new GetLine(MY_FILE).line()).append(" ");
+      
+      //Get the content from Wordnik
       builder.append(getWordnikContent(output));
       
-      /* Append a line from a file (optional)
-      builder.append(new GetLine(MY_FILE).line());
-      builder.append(" ");
-	  */
-          
-      /** Restrict the length of the Post for blogs that post to Twitter
-      if(builder.length() > 130)
+      /** Restrict the length of the content (optional) */
+      while(builder.length() > 280)
          {
          builder.setLength(0);
+         /** Optional: append another line
+          builder.append(new GetLine(MY_FILE).line()).append(" ");
+         */
          builder.append(getWordnikContent(output));
          }
-      */
-	  
+           
       //Set the content
       content.setContent(builder.toString());
       
@@ -200,9 +200,15 @@ public class BlogServlet extends HttpServlet
       
       try
          {
+         StringBuilder builder = new StringBuilder();
          Word random = WordsApi.randomWord();
          Example ex = WordApi.topExample(random.getWord());   
-         return ex.getText();
+         builder.append(ex.getText());
+         
+         /* Append some hashtags to the post (optional)  */      
+         builder.append(" #" + WordsApi.randomWord().getWord());
+         builder.append(" #" + WordsApi.randomWord().getWord());
+         return builder.toString();
          }
       catch(KnickerException e)
          {
